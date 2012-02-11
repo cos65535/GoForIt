@@ -2,11 +2,13 @@
 #include <cstdlib>
 #include <cmath>
 
-#include <iostream>
-using namespace std;
-
 const double PI = 3.14159265358979323846264338327950288;
 const double E =  2.718281828459045235360287471352;
+
+int fact(int v) {
+  if (v == 0) { return 1; }
+  return v * fact(v - 1);
+}
 
 // http://www.seijo.ac.jp/pdf/faeco/kenkyu/118/118-sekimoto.pdf
 double c[7] = {
@@ -39,5 +41,9 @@ int main() {
     printf("%f is not valid input.\n", v);
     exit(1);
   }
-  printf("%.8f\n", Gamma(v));
+  if (fmod(v, 1.0) < 1e-8) {
+    printf("%d\n", fact(v));
+  } else {
+    printf("%.8f\n", Gamma(v));
+  }
 }
