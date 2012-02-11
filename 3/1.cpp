@@ -2,8 +2,9 @@
 #include <cassert>
 #include <cstdlib>
 #include <string>
-#include <algorithm>
 
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
 void Usage(int argc, char *argv[]) {
@@ -31,13 +32,18 @@ bool OK(int skip, int start, const string &keyword, const string &str) {
 
 int main(int argc, char *argv[]) {
   if (argc != 2) { Usage(argc, argv); }
-  MakeRandStr(16);
   string keyword = argv[1];
   string revKeyword = keyword;
   reverse(revKeyword.begin(), revKeyword.end());
-  int n = randStr.size();
   int len = keyword.size();
-  for (int skip = 1; skip <= (n + len - 1) / len; skip++) {
+  if (len <= 1) {
+    printf("Invalid Keyword!\n");
+    exit(0);
+  }
+  //MakeRandStr(16);
+  cin >> randStr;
+  int n = randStr.size();
+  for (int skip = 0; skip < n; skip++) {
     int use = 1 + (len - 1) * skip;
     for (int start = 0; start <= n - use; start++) {
       if (OK(skip, start, keyword, randStr) ||
