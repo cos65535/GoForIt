@@ -2,6 +2,9 @@
 
 GO FOR IT( http://www.sony.co.jp/SonyInfo/Jobs/newgrads/sus/go_for_it.html )の解答
 3/2.cppとかが3)のii)に対応します。
+コンパイル方法はg++ -Wall -O2 2.cppとかで。
+VMWare上のUbuntu 10.04でテストしています。
+
 簡単な解説。
 1)一日ずつ足してるだけ。高々200*366程度なので十分速い。
 2)Gamma関数の計算。ぐぐったら近似式が出てきた。
