@@ -44,10 +44,6 @@ int main(int argc, char *argv[]) {
   }
   cin >> randStr;
   int n = randStr.size();
-  if (n == 0) {
-    printf("Invalid Keyword!\n");
-    exit(1);
-  }
 
   // make indeces
   for (int i = 0; i < n; i++) {
